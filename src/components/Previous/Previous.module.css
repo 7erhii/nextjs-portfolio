@@ -1,0 +1,41 @@
+.TargetContainer {
+  width: 100%;
+  max-width: 90%;
+  margin: 2em auto;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.TargetItems {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-items: center;
+  justify-content: center;
+  /* gap: 2em; */
+}
+
+.TargetItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  max-width: 10%;
+  padding: 1em;
+  margin: 3em;
+  border-radius: 50%;
+  text-transform: capitalize;
+}
+
+
+.TargetItem > :global(img) {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  padding: 1em;
+  /* border: 2px solid var(--border-color); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

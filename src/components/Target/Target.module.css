@@ -1,0 +1,50 @@
+.TargetContainer {
+  width: 100%;
+  max-width: 90%;
+  margin: 2em auto;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.TargetItems {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.TargetItem {
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+  box-sizing: border-box;
+  margin: 1em;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.TargetItem > p {
+  font-size: 1.5em;
+
+  line-height: 300%;
+  text-transform: capitalize;
+}
+.TargetItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.TargetItem > :global(img) {
+  width: 80%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}

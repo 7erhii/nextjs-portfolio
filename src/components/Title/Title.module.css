@@ -1,0 +1,10 @@
+.HeroContainer {
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+}
+
+.HeroContainer > h2 {
+    font-size: 4em;
+    color: var(--text-secondary);
+}

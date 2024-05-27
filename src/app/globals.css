@@ -2,32 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --primary-color: #4a5568; /* Slate Gray */
+    --secondary-color: #a0aec0; /* Cool Gray */
+    --accent-color: #38b2ac; /* Teal */
+    --text-primary: #2d3748; /* Dark Gray */
+    --text-secondary: #718096; /* Medium Gray */
+    --background-color: #f7fafc; /* Light Grayish White */
+    --border-color: #e2e8f0; /* Light Blue Gray */
+    --shadow-color: rgba(0, 0, 0, 0.05); /* Very Light Shadow */
+    --primary-hover: #2b6cb0; /* Darker Slate Gray */
+    --accent-hover: #319795; /* Darker Teal */
+  }
+  
+  
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-size: 16px;
+  /* overflow: hidden; */
+  /* font-family: "Poppins", sans-serif; */
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  cursor: default;
+}
+
+.main-btn {
+  /* padding: 1.62em 2em; */
+  border-radius: 200px;
+  text-wrap: nowrap;
+}
+
+/* .main-btn.main-btn--blue {
+  background: red;
+} */
+
+.slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  cursor: default;
+  margin: 0;
 }
