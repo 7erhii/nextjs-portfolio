@@ -63,8 +63,45 @@
   align-items: center;
   gap: 0.5em;
   transition: color 0.2s;
+  font-size: 1.2em;
 }
 
 .ProjectLink:hover {
   color: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+  .TargetContainer {
+    max-width: 95%;
+    border-radius: 12px;
+  }
+
+  .TargetItems {
+    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+  }
+
+  .TargetItem {
+    border-radius: 8px;
+  }
+  .TargetItem:hover {
+    transform: scale(1);
+  }
+  .ProjectContent {
+    padding: 2em;
+  }
+  .ProjectTitle {
+    font-size: 4em;
+  }
+  .ProjectDescription {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  .ProjectTechnologies {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
+  .ProjectLink {
+    font-size: 3em;
+  }
 }

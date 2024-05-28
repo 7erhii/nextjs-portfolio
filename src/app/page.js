@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import styles from "./Page.module.css";
 
-
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import Target from "@/components/Target/Target";
@@ -23,8 +22,6 @@ export default function Home() {
       <Sertificate />
       <Examples />
       <Footer />
-      
-
     </div>
   );
 }

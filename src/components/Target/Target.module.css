@@ -48,3 +48,23 @@
   border-radius: 12px;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .TargetContainer {
+    max-width: 95%;
+    border-radius: 12px;
+
+  }
+  .TargetItems {
+    flex-wrap: wrap;
+  }
+  .TargetItem {
+    flex: 1 1 calc(50% - 4em);
+    margin: 2em;
+    border-radius: 8px;
+
+  }
+.TargetItem > p {
+  font-size: 3em;
+}
+}

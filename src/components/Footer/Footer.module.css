@@ -24,3 +24,10 @@
   transform: scale(1.2);
   transition: transform 0.3s ease-in-out;
 }
+
+@media (max-width: 768px) {
+  .FooterContainer {
+    padding: 1em;
+    font-size: 4em;
+  }
+}
