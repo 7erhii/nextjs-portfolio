@@ -1,0 +1,70 @@
+.TargetContainer {
+  width: 100%;
+  max-width: 90%;
+  margin: 2em auto;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  padding: 2em;
+}
+
+.TargetItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+}
+
+.TargetItem {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.2s;
+}
+
+.TargetItem:hover {
+  transform: scale(1.02);
+}
+
+.ProjectImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.ProjectContent {
+  padding: 1em;
+}
+
+.ProjectTitle {
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.ProjectDescription {
+  color: var(--text-secondary);
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.ProjectTechnologies {
+  color: var(--text-primary);
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+.ProjectLink {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: color 0.2s;
+}
+
+.ProjectLink:hover {
+  color: var(--accent-hover);
+}

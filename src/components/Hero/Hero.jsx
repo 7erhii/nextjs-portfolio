@@ -21,25 +21,29 @@ export default function Hero() {
 
           <span>He/Him</span>
           <h2>
-            Turning business requirements <br /> into seamless user experiences through
-            code.
+            Turning business requirements <br /> into seamless user experiences
+            through code.
           </h2>
         </div>
         <div className={styles.HeroButtons}>
-          <a href="" className={styles.Links}>
+          <a href="" target="_blank" className={styles.Links}>
             <FaGithub />
           </a>
-          <a href="" className={styles.HeroCV}>
+          <a
+            href="https://drive.google.com/file/d/16lHEsVQbXCIpJI1W-G2qM_sj8eFJf3Rd/view"
+            target="_blank"
+            className={styles.HeroCV}
+          >
             Download CV
             <FaCloudDownloadAlt />
           </a>
-          <a href="" className={styles.Links}>
+          <a href="" target="_blank" className={styles.Links}>
             <FaTwitter />
           </a>
-          <a href="" className={styles.Links}>
+          <a href="" target="_blank" className={styles.Links}>
             <IoIosMail />
           </a>
-          <a href="" className={styles.Links}>
+          <a href="" target="_blank" className={styles.Links}>
             <FaInstagram />
           </a>
         </div>

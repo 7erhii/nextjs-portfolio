@@ -4,7 +4,7 @@
   margin: 2em auto;
   border-radius: 26px;
   overflow: hidden;
-  background: #fff;
+  background: #f0f0f0;
   box-shadow: 0 4px 6px var(--shadow-color);
 }
 
@@ -12,7 +12,6 @@
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  align-items: center;
   justify-content: center;
 }
 
@@ -21,9 +20,32 @@
   flex: 1 1 50%;
   padding: 1em;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1em;
+  transition: transform 0.3s ease;
+}
+
+.ImageWrapper:hover {
+  transform: scale(1.03);
 }
 
 .Image {
   width: 100%;
   height: auto;
+  max-height: 20em;
+  object-fit: contain;
+}
+
+.ImageWrapper {
+  height: 22em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
