@@ -12,6 +12,11 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
+  min-height: 24em;
+  @media(max-width: 768px) {
+  min-height: 90em;
+    
+  }
 }
 
 .TargetItem {
@@ -20,29 +25,65 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  /* padding: 2em; */
   box-sizing: border-box;
   margin: 1em;
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.6s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  justify-content: center;
 }
 
-.TargetItem > p {
-  font-size: 1.5em;
-
-  line-height: 300%;
-  text-transform: capitalize;
-}
 .TargetItem:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.TargetItem > :global(img) {
+.TargetItem.flipped {
+  transform: rotateY(180deg);
+}
+
+.TargetItemFront,
+.TargetItemBack {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+}
+
+.TargetItemFront {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-size: 1.5em;
+}
+
+.TargetItemBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+  background: #1a202c;
+  height: 100%;
+
+  color: #fff;
+  font-size: 1.4em;
+  text-align: center;
+  padding: 0.4em;
+}
+
+.TargetItem > p {
+  font-size: 1.5em;
+  line-height: 300%;
+  text-transform: capitalize;
+}
+
+.TargetItem img {
   width: 80%;
   height: auto;
   border-radius: 12px;
@@ -53,18 +94,24 @@
   .TargetContainer {
     max-width: 95%;
     border-radius: 12px;
-
   }
+  
   .TargetItems {
     flex-wrap: wrap;
   }
+
   .TargetItem {
     flex: 1 1 calc(50% - 4em);
     margin: 2em;
     border-radius: 8px;
-
   }
-.TargetItem > p {
-  font-size: 3em;
+
+  .TargetItem > p {
+    font-size: 3em;
+  }
+
+.TargetItemBack > p {
+  font-size: 2em;
+
 }
 }

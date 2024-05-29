@@ -74,11 +74,14 @@
   .TargetContainer {
     max-width: 95%;
     border-radius: 12px;
+    padding: 2em 0;
+    background: fff0;
+    box-shadow: none;
   }
 
   .TargetItems {
     grid-template-columns: 1fr 1fr;
-    gap: 4em;
+    gap: 2em;
   }
 
   .TargetItem {
@@ -94,14 +97,15 @@
     font-size: 4em;
   }
   .ProjectDescription {
-    font-size: 2em;
+    font-size: 3em;
     margin-bottom: 1em;
+    min-height: 6em;
   }
   .ProjectTechnologies {
     font-size: 3em;
     margin-bottom: 1em;
   }
   .ProjectLink {
-    font-size: 3em;
+    font-size: 3.4em;
   }
 }
