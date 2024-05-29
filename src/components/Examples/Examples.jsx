@@ -32,7 +32,7 @@ const projects = [
     title: "RedMax Online Cinema",
     description:
       "An online cinema platform designed with Vue, integrated with WordPress and PHP for content management.",
-    technologies: "Vue, WordPress, PHP",
+    technologies: "Vue, WordPress, ACF, PHP",
     imageUrl: proj2,
     link: "https://www.redmax-tv.tv/",
   },
@@ -40,7 +40,7 @@ const projects = [
     title: "Numerologist Landing",
     description:
       "A captivating landing page for a numerologist, featuring interactive elements designed with WordPress and JavaScript.",
-    technologies: "WordPress, JS",
+    technologies: "WordPress, ACF, JS",
     imageUrl: proj3,
     link: "https://yourmatrixenergy.de/",
   },
