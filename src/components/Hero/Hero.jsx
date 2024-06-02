@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { FaCloudDownloadAlt } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
 
@@ -26,7 +26,11 @@ export default function Hero() {
           </h2>
         </div>
         <div className={styles.HeroButtons}>
-          <a href="" target="_blank" className={styles.Links}>
+          <a
+            href="https://github.com/7erhii"
+            target="_blank"
+            className={styles.Links}
+          >
             <FaGithub />
           </a>
           <a
@@ -37,13 +41,22 @@ export default function Hero() {
             Download CV
             <FaCloudDownloadAlt />
           </a>
-          <a href="" target="_blank" className={styles.Links}>
-            <FaTwitter />
+          <a
+            href="https://x.com/7erhiy"
+            target="_blank"
+            className={styles.Links}
+          >
+            <FaXTwitter />
           </a>
-          <a href="" target="_blank" className={styles.Links}>
+          <a
+            href="mailto:7erhiy@gmail.com"
+            target="_blank"
+            className={styles.Links}
+          >
             <IoIosMail />
           </a>
-          <a href="" target="_blank" className={styles.Links}>
+
+          <a href="https://www.instagram.com/7erhi/" target="_blank" className={styles.Links}>
             <FaInstagram />
           </a>
         </div>
