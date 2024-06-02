@@ -8,3 +8,9 @@
     font-size: 4em;
     color: var(--text-secondary);
 }
+
+@media(max-width: 768px) {
+    .HeroContainer > h2 {
+        font-size: 6em;
+    }
+}

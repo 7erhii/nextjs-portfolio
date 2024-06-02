@@ -27,6 +27,12 @@
   margin: 1em;
 }
 
+.Card > p {
+  margin-top: 0.2em;
+  text-align: center;
+  font-size: 2em;
+  color: var(--primary-color);
+}
 .Card > span {
   margin-top: 0.2em;
   text-align: center;
@@ -83,8 +89,11 @@
     padding: 1em;
     border-radius: 8px;
   }
+  .Card > p {
+    font-size: 5em;
+  }
   .Card > span {
-    font-size: 1.8em;
+    font-size: 3em;
   }
   .Image {
     max-height: 40em;
