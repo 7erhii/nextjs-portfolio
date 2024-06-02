@@ -18,6 +18,7 @@ import proj10 from "@/assets/images/proj10.png";
 import proj11 from "@/assets/images/proj11.png";
 import proj12 from "@/assets/images/proj12.png";
 import proj13 from "@/assets/images/proj13.png";
+import proj14 from "@/assets/images/proj14.png";
 
 const projects = [
   {
@@ -27,6 +28,14 @@ const projects = [
     technologies: "Next.js, GSAP, i18n",
     imageUrl: proj1,
     link: "https://art-digital.vercel.app/en",
+  },
+  {
+    title: "Landing Page for an Auto Repair Shop",
+    description:
+      "A sleek WordPress landing page for an auto repair shop, featuring a Google API integration, language switcher, and responsive design. Connect effortlessly with clients through our advanced mailing system.",
+    technologies: "NodeJS, Axios",
+    imageUrl: proj14,
+    link: "https://www.carforyou.co.il/",
   },
   {
     title: "RedMax Online Cinema",
