@@ -34,7 +34,7 @@ export default function Hero() {
             <FaGithub />
           </a>
           <a
-            href="https://drive.google.com/file/d/16lHEsVQbXCIpJI1W-G2qM_sj8eFJf3Rd/view"
+            href="https://docs.google.com/document/d/1dlvVXklNILuDCVbgCL5lEjNTJ18kBFwc-cGOhSEIApU/"
             target="_blank"
             className={styles.HeroCV}
           >
