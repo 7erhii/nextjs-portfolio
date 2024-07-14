@@ -17,6 +17,7 @@
   box-shadow: 0 4px 6px var(--shadow-color);
   border-radius: 26px;
   padding: 2em;
+  /* background: #c2b9b7; */
 }
 
 .HeroText > h1 {
@@ -62,7 +63,7 @@
   border-radius: 200px;
   color: #fff;
   transition: background-color 0.3s ease;
-  border: 1px solid var(--background-color);
+  border: 1px solid #82dae3;
 }
 
 .HeroCV:hover {

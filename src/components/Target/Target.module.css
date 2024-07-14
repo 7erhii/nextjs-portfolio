@@ -4,8 +4,8 @@
   margin: 2em auto;
   border-radius: 26px;
   overflow: hidden;
-  background: #fff;
   box-shadow: 0 4px 6px var(--shadow-color);
+  background: #f0f0f0;
 }
 
 .TargetItems {
@@ -28,18 +28,21 @@
   /* padding: 2em; */
   box-sizing: border-box;
   margin: 1em;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.6s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.6s, background 0.3s ease-in-out;
   perspective: 1000px;
   transform-style: preserve-3d;
   justify-content: center;
+  cursor: pointer;
 }
 
 .TargetItem:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 1);
+
 }
 
 .TargetItem.flipped {
