@@ -24,7 +24,7 @@ import proj15 from "@/assets/images/proj15.png";
 
 const projects = [
   {
-    title: "Medical Clinic",
+    title: "Vekmed Clinic",
     description:
       "A multilingual medical services website offering specialized healthcare information and online consultations.",
     technologies: "Next.js, i18n, NodeJs, SMS-API,",
