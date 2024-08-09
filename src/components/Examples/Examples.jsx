@@ -19,8 +19,18 @@ import proj11 from "@/assets/images/proj11.png";
 import proj12 from "@/assets/images/proj12.png";
 import proj13 from "@/assets/images/proj13.png";
 import proj14 from "@/assets/images/proj14.png";
+import proj15 from "@/assets/images/proj15.png";
+
 
 const projects = [
+  {
+    title: "Medical Clinic",
+    description:
+      "A multilingual medical services website offering specialized healthcare information and online consultations.",
+    technologies: "Next.js, i18n, NodeJs, SMS-API,",
+    imageUrl: proj15,
+    link: "https://www.vekmed.com/en",
+  },
   {
     title: "Art Digital Studio",
     description:
