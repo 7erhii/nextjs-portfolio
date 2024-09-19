@@ -7,33 +7,41 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Serhii Krepets - Web Developer",
-  description: "Explore Serhii Krepets' portfolio showcasing modern web projects using Next.js and React.",
-  keywords: "Serhii Krepets, Web Developer, Next.js, React, Front-End Development, Portfolio, JavaScript Developer, Responsive Design, Web Applications, UI/UX Design, Modern Web Technologies",
+  title: "Serhii Krepets | Professional Web Developer | Next.js & React Specialist",
+  description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using Next.js and React. Discover our projects and services in front-end development and UI/UX design.",
+  keywords: "Serhii Krepets, web developer, Next.js, React, front-end development, web development portfolio, JavaScript developer, responsive design, web applications, UI/UX design, modern web technologies",
+  
+  openGraph: {
+    title: "Serhii Krepets | Professional Web Developer | Next.js & React Specialist",
+    description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using Next.js and React. Discover our projects and services in front-end development and UI/UX design.",
+    url: "https://krepets.com/",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/thumbnail.avif", 
+        width: 1200,
+        height: 630,
+        alt: "Serhii Krepets Portfolio",
+      },
+    ],
+  },
+  
+  twitter: {
+    card: "summary_large_image",
+    title: "Serhii Krepets | Professional Web Developer | Next.js & React Specialist",
+    description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using Next.js and React. Discover our projects and services in front-end development and UI/UX design.",
+    images: ["/thumbnail.avif"],
+    site: "@7erhiy", 
+  },
+  
+  icons: "/favicon.ico",
 };
-
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content="/public/tumbnail.avif" />
-        <meta property="og:url" content="https://krepets.com/" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content="/public/tumbnail.avif" />
-      </head>
-      <body className={lato.className} >{children}</body>
+      <body className={lato.className}>{children}</body>
     </html>
   );
 }
