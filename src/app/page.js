@@ -14,7 +14,6 @@ import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <div className={styles.pageWrapper}>
-      {/* <Header /> */}
       <FontResizer />
       <Hero />
       <Target />
