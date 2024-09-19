@@ -7,10 +7,12 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Web Developer Portfolio - Next.js Site",
-  description: "Professional web developer portfolio showcasing skills in Next.js, React, and modern web development technologies. Explore projects, experience, and get in touch for collaborations.",
-  keywords: "Web Developer, Next.js, React, Front-End Developer, Portfolio, Web Development, JavaScript, HTML, CSS, Modern Web Development, Responsive Design",
+  title: "Serhii Krepets - Web Developer",
+  description: "Explore Serhii Krepets' portfolio showcasing modern web projects using Next.js and React.",
+  keywords: "Serhii Krepets, Web Developer, Next.js, React, Front-End Development, Portfolio, JavaScript Developer, Responsive Design, Web Applications, UI/UX Design, Modern Web Technologies",
 };
+
+
 
 export default function RootLayout({ children }) {
   return (
