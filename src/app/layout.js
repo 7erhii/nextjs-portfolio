@@ -7,13 +7,13 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Serhii Krepets | Professional Web Developer | Next.js & React Specialist",
-  description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using Next.js and React. Discover our projects and services in front-end development and UI/UX design.",
+  title: "Serhii Krepets | Professional Web Developer",
+  description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using JS & PHP. Discover our projects and services in front-end development and UI/UX design.",
   keywords: "Serhii Krepets, web developer, Next.js, React, front-end development, web development portfolio, JavaScript developer, responsive design, web applications, UI/UX design, modern web technologies",
   
   openGraph: {
-    title: "Serhii Krepets | Professional Web Developer | Next.js & React Specialist",
-    description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using Next.js and React. Discover our projects and services in front-end development and UI/UX design.",
+    title: "Serhii Krepets | Professional Web Developer",
+    description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using JS & PHP. Discover our projects and services in front-end development and UI/UX design.",
     url: "https://krepets.com/",
     type: "website",
     locale: "en_US",
@@ -29,8 +29,8 @@ export const metadata = {
   
   twitter: {
     card: "summary_large_image",
-    title: "Serhii Krepets | Professional Web Developer |",
-    description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using Next.js & PHP. Discover our projects and services in front-end development and UI/UX design.",
+    title: "Serhii Krepets | Professional Web Developer",
+    description: "Welcome to Serhii Krepets' portfolio — an experienced web developer specializing in building modern web applications using JS & PHP. Discover our projects and services in front-end development and UI/UX design.",
     images: ["/thumbnail.avif"],
     site: "@7erhiy", 
   },
