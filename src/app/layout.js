@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content={metadata.description} />
         <meta name="twitter:image" content="/public/tumbnail.avif" />
       </head>
-      <body className={lato.className}>{children}</body>
+      <body className={lato.className} >{children}</body>
     </html>
   );
 }
