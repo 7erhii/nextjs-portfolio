@@ -22,13 +22,12 @@ import proj14 from "@/assets/images/proj14.png";
 import proj15 from "@/assets/images/proj15.png";
 import proj16 from "@/assets/images/proj16.png";
 
-
 const projects = [
   {
-    title: "TrustToken",
+    title: "TrustGame",
     description:
-      "Crypto projects website, Solana blockchain, Phantom and Backpack wallets",
-    technologies: "Next.js, Supabase, Redis, SolanaApi, AlchemyApi",
+      "Crypto token game in solana blockchain",
+    technologies: "Next.js, Supabase, SolanaApi, Redis ",
     imageUrl: proj16,
     link: "https://trustgame.io/",
   },
