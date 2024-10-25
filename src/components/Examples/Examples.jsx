@@ -22,6 +22,7 @@ import proj14 from "@/assets/images/proj14.png";
 import proj15 from "@/assets/images/proj15.png";
 import proj16 from "@/assets/images/proj16.png";
 
+
 const projects = [
   {
     title: "TrustGame",
