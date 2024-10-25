@@ -1,0 +1,146 @@
+import React, { useState, useEffect, useCallback } from "react"
+import { ethers } from "ethers"
+import { User, Twitter, BarChart2, X, Menu, Home, DollarSign, HelpCircle } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
+// You'll need to replace this with your actual token ABI
+const TOKEN_ABI = [
+  "event Transfer(address indexed from, address indexed to, uint256 value)",
+  "function balanceOf(address account) view returns (uint256)",
+  "function totalSupply() view returns (uint256)"
+]
+
+const TOKEN_ADDRESS = "0x..." // Replace with your token's contract address
+const INFURA_PROJECT_ID = "YOUR_INFURA_PROJECT_ID" // Replace with your Infura project ID
+
+type TokenHolder = {
+  id: number
+  name: string
+  holdingPercentage: number
+  twitterHandle: string
+  walletAddress: string
+  followCount: number
+  balance: ethers.BigNumber
+}
+
+const getColorClass = (percentage: number): string => {
+  if (percentage === 0) return 'bg-gray-500'
+  if (percentage <= 30) return 'bg-red-500'
+  if (percentage <= 99) return 'bg-orange-500'
+  return 'bg-green-500'
+}
+
+export default function TokenHolderDashboard() {
+  const [tokenHolders, setTokenHolders] = useState<TokenHolder[]>([])
+  const [selectedHolder, setSelectedHolder] = useState<TokenHolder | null>(null)
+  const [sortBy, setSortBy] = useState<string>("holdingPercentage")
+  const [showExplainer, setShowExplainer] = useState<boolean>(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
+  const [totalSupply, setTotalSupply] = useState<ethers.BigNumber>(ethers.BigNumber.from(0))
+
+  const updateTokenHolder = useCallback((address: string, newBalance: ethers.BigNumber) => {
+    setTokenHolders(prevHolders => {
+      const updatedHolders = prevHolders.map(holder => {
+        if (holder.walletAddress.toLowerCase() === address.toLowerCase()) {
+          const newPercentage = totalSupply.gt(0)
+            ? newBalance.mul(100).div(totalSupply).toNumber()
+            : 0
+          return { ...holder, balance: newBalance, holdingPercentage: newPercentage }
+        }
+        return holder
+      })
+      return updatedHolders
+    })
+  }, [totalSupply])
+
+  useEffect(() => {
+    const provider = new ethers.providers.WebSocketProvider(`wss://mainnet.infura.io/ws/v3/${INFURA_PROJECT_ID}`)
+    const tokenContract = new ethers.Contract(TOKEN_ADDRESS, TOKEN_ABI, provider)
+
+    const fetchInitialData = async () => {
+      try {
+        const supply = await tokenContract.totalSupply()
+        setTotalSupply(supply)
+
+        const initialHolders = await Promise.all(
+          Array.from({ length: 100 }, async (_, i) => {
+            const address = ethers.Wallet.createRandom().address
+            const balance = await tokenContract.balanceOf(address)
+            const percentage = supply.gt(0) ? balance.mul(100).div(supply).toNumber() : 0
+            return {
+              id: i + 1,
+              name: `Holder ${i + 1}`,
+              holdingPercentage: percentage,
+              twitterHandle: `holder${i + 1}`,
+              walletAddress: address,
+              followCount: Math.floor(Math.random() * 1000000) + 1000,
+              balance: balance
+            }
+          })
+        )
+        setTokenHolders(initialHolders)
+      } catch (error) {
+        console.error("Error fetching initial data:", error)
+      }
+    }
+
+    fetchInitialData()
+
+    const transferListener = (from: string, to: string, value: ethers.BigNumber, event: ethers.Event) => {
+      updateTokenHolder(from, tokenContract.balanceOf(from))
+      updateTokenHolder(to, tokenContract.balanceOf(to))
+    }
+
+    tokenContract.on("Transfer", transferListener)
+
+    return () => {
+      tokenContract.removeListener("Transfer", transferListener)
+      provider.disconnect()
+    }
+  }, [updateTokenHolder])
+
+  const sortedHolders = [...tokenHolders].sort((a, b) => {
+    if (sortBy === "BrokestFag") {
+      return a.holdingPercentage - b.holdingPercentage
+    } else if (sortBy === "ChadestChad") {
+      return b.holdingPercentage - a.holdingPercentage
+    } else if (sortBy === "followCount") {
+      return b.followCount - a.followCount
+    }
+    return 0
+  })
+
+  // ... (rest of the component remains the same)
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-gray-100">
+      {/* ... (navigation and layout code remains the same) */}
+
+      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="px-4 py-6 sm:px-0">
+          <Card className="w-full bg-gray-800 border-none shadow-none">
+            <CardContent className="p-4">
+              {/* ... (sorting and header code remains the same) */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 gap-4">
+                {sortedHolders.map((holder) => (
+                  <div
+                    key={holder.id}
+                    className={`relative aspect-square bg-gray-700 cursor-pointer transform hover:scale-105 transition-transform duration-200`}
+                    onClick={() => setSelectedHolder(holder)}
+                  >
+                    {/* ... (holder display code remains the same) */}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+
+      {/* ... (dialog and explainer code remains the same) */}
+    </div>
+  )
+}

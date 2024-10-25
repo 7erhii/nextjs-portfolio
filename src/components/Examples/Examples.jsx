@@ -20,9 +20,18 @@ import proj12 from "@/assets/images/proj12.png";
 import proj13 from "@/assets/images/proj13.png";
 import proj14 from "@/assets/images/proj14.png";
 import proj15 from "@/assets/images/proj15.png";
+import proj16 from "@/assets/images/proj16.png";
 
 
 const projects = [
+  {
+    title: "TrustToken",
+    description:
+      "Crypto projects website, Solana blockchain, Phantom and Backpack wallets",
+    technologies: "Next.js, Supabase, Redis, SolanaApi, AlchemyApi",
+    imageUrl: proj16,
+    link: "https://trustgame.io/",
+  },
   {
     title: "Vekmed Clinic",
     description:
