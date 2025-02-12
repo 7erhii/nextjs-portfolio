@@ -1,120 +1,180 @@
 .TargetContainer {
   width: 100%;
-  max-width: 90%;
-  margin: 2em auto;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px var(--shadow-color);
-  background: #f0f0f0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.TargetBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background: 
+    radial-gradient(circle at 70% 30%, rgba(255, 0, 128, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 30% 70%, rgba(121, 40, 202, 0.2) 0%, transparent 50%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .TargetItems {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  min-height: 24em;
-  @media(max-width: 768px) {
-  min-height: 90em;
-    
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .TargetItem {
-  flex: 1 1 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* padding: 2em; */
-  box-sizing: border-box;
-  margin: 1em;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.6s, background 0.3s ease-in-out;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  justify-content: center;
+  position: relative;
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .TargetItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 1);
-
+  background: rgba(20, 20, 20, 0.95);
+  border-color: rgba(255, 0, 128, 0.3);
+  box-shadow: 
+    0 10px 30px -10px rgba(255, 0, 128, 0.3),
+    0 0 0 1px rgba(255, 0, 128, 0.2) inset;
 }
 
-.TargetItem.flipped {
-  transform: rotateY(180deg);
+.TargetItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.TargetItemFront,
-.TargetItemBack {
-  position: absolute;
+.TargetItemIcon {
+  width: 60px;
+  height: 60px;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  background: linear-gradient(45deg, rgba(121, 40, 202, 0.2), rgba(255, 0, 128, 0.2));
+  border: 1px solid rgba(255, 0, 128, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.TargetItem:hover .TargetItemIcon {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, rgba(121, 40, 202, 0.3), rgba(255, 0, 128, 0.3));
+  border-color: rgba(255, 0, 128, 0.4);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.2);
+}
+
+.TargetItemIcon img {
   width: 100%;
-  backface-visibility: hidden;
-  border-radius: 16px;
-}
-
-.TargetItemFront {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  font-size: 1.5em;
-}
-
-.TargetItemBack {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotateY(180deg);
-  background: #1a202c;
   height: 100%;
-
-  color: #fff;
-  font-size: 1.4em;
-  text-align: center;
-  padding: 0.4em;
+  object-fit: contain;
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 0, 128, 0.3));
 }
 
-.TargetItem > p {
-  font-size: 1.5em;
-  line-height: 300%;
-  text-transform: capitalize;
+.TargetItemTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #FF0080, #7928CA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 0, 128, 0.1);
 }
 
-.TargetItem img {
-  width: 80%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
+.TargetItemDescription {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.TargetItem:hover .TargetItemDescription {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.TargetItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(255, 0, 128, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.TargetItem:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .TargetContainer {
+    padding: 4rem 2rem;
+  }
+
+  .TargetItems {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .TargetContainer {
-    max-width: 95%;
-    border-radius: 12px;
+    padding: 3rem 1.5rem;
   }
-  
+
   .TargetItems {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .TargetItem {
-    flex: 1 1 calc(50% - 4em);
-    margin: 2em;
-    border-radius: 8px;
+  .TargetItemHeader {
+    gap: 1rem;
   }
 
-  .TargetItem > p {
-    font-size: 3em;
+  .TargetItemIcon {
+    width: 50px;
+    height: 50px;
   }
 
-.TargetItemBack > p {
-  font-size: 2em;
+  .TargetItemTitle {
+    font-size: 1.25rem;
+  }
 
+  .TargetItemDescription {
+    font-size: 0.95rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .TargetContainer {
+    padding: 2rem 1rem;
+  }
+
+  .TargetItemIcon {
+    width: 45px;
+    height: 45px;
+    padding: 0.6rem;
+  }
 }

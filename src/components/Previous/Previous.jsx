@@ -1,13 +1,11 @@
-import Image from "next/image";
-import styles from "./Previous.module.css";
+"use client";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
+import styles from "./Previous.module.css";
 import Title from "@/components/Title/Title";
 
 import Angular from "@/assets/images/angular-svgrepo-com.svg";
-import NextJs from "@/assets/images/nextjs-icon-svgrepo-com.svg";
-import Taiwind from "@/assets/images/tailwind.svg";
-import Mongo from "@/assets/images/mongodb-svgrepo-com.svg";
-
 import JS from "@/assets/images/js-svgrepo-com.svg";
 import vuejs from "@/assets/images/vue-vuejs-javascript-js-framework-svgrepo-com.svg";
 import php from "@/assets/images/php-svgrepo-com.svg";
@@ -17,57 +15,80 @@ import jira from "@/assets/images/jira-svgrepo-com.svg";
 import slack from "@/assets/images/slack-svgrepo-com.svg";
 import postman from "@/assets/images/postman-icon-svgrepo-com.svg";
 import docker from "@/assets/images/docker-svgrepo-com.svg";
-// import php from "@/assets/images/php-svgrepo-com.svg";
 
+const technologies = [
+  { img: Angular, name: "Angular" },
+  { img: JS, name: "JavaScript" },
+  { img: vuejs, name: "Vue.js" },
+  { img: php, name: "PHP" },
+  { img: pug, name: "Pug" },
+  { img: scss2, name: "SCSS" },
+  { img: jira, name: "Jira" },
+  { img: slack, name: "Slack" },
+  { img: postman, name: "Postman" },
+  { img: docker, name: "Docker" }
+];
 
 export default function Previous() {
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', `${x}%`);
+    card.style.setProperty('--mouse-y', `${y}%`);
+  };
+
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <section className={styles.TargetContainer}>
-      <Title title={"Previous Experience"} />
-      <div className={styles.TargetItems}>
-        <div className={styles.TargetItem}>
-          <Image src={Angular} alt="Angular" />
-          <p>Angular</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={JS} alt="JS" />
-          <p>JS</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={vuejs} alt="vuejs" />
-          <p>vuejs</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={php} alt="php" />
-          <p>php</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={pug} alt="pug" />
-          <p>pug</p>
-        </div>
-
-        <div className={styles.TargetItem}>
-          <Image src={scss2} alt="scss2" />
-          <p>scss</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={jira} alt="jira" />
-          <p>jira</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={slack} alt="slack" />
-          <p>slack</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={postman} alt="postman" />
-          <p>postman</p>
-        </div>
-        <div className={styles.TargetItem}>
-          <Image src={docker} alt="docker" />
-          <p>docker</p>
-        </div>
-
-      </div>
+      <div className={styles.TargetBackground} />
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={container}
+      >
+        <motion.div variants={fadeIn}>
+          <Title title="Previous Experience" />
+        </motion.div>
+        
+        <motion.div className={styles.TargetItems} variants={container}>
+          {technologies.map((tech, index) => (
+            <motion.div
+              key={index}
+              className={styles.TargetItem}
+              variants={fadeIn}
+              onMouseMove={handleMouseMove}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image
+                src={tech.img}
+                alt={tech.name}
+                width={40}
+                height={40}
+                priority={index < 4}
+              />
+              <p>{tech.name}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

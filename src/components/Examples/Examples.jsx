@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import styles from "./Examples.module.css";
 
 import Title from "@/components/Title/Title";
@@ -155,35 +158,78 @@ const projects = [
 ];
 
 export default function Examples() {
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', `${x}%`);
+    card.style.setProperty('--mouse-y', `${y}%`);
+  };
+
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <section className={styles.TargetContainer}>
-      <Title title={"Examples"} />
-      <div className={styles.TargetItems}>
-        {projects.map((project, index) => (
-          <div key={index} className={styles.TargetItem}>
-            <Image
-              src={project.imageUrl}
-              alt={project.title}
-              className={styles.ProjectImage}
-            />
-            <div className={styles.ProjectContent}>
-              <h3 className={styles.ProjectTitle}>{project.title}</h3>
-              <p className={styles.ProjectDescription}>{project.description}</p>
-              <p className={styles.ProjectTechnologies}>
-                {project.technologies}
-              </p>
-              <a
-                href={project.link}
-                className={styles.ProjectLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project <FaCircleArrowRight />
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+      <div className={styles.TargetBackground} />
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={container}
+      >
+        <motion.div variants={fadeIn}>
+          <Title title="Examples" />
+        </motion.div>
+        
+        <motion.div className={styles.TargetItems} variants={container}>
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className={styles.TargetItem}
+              variants={fadeIn}
+              onMouseMove={handleMouseMove}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Image
+                src={project.imageUrl}
+                alt={project.title}
+                className={styles.ProjectImage}
+                priority={index < 6}
+              />
+              <div className={styles.ProjectContent}>
+                <h3 className={styles.ProjectTitle}>{project.title}</h3>
+                <p className={styles.ProjectDescription}>{project.description}</p>
+                <p className={styles.ProjectTechnologies}>
+                  {project.technologies}
+                </p>
+                <a
+                  href={project.link}
+                  className={styles.ProjectLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project <FaCircleArrowRight />
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

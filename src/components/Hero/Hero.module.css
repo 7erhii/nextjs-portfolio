@@ -1,153 +1,318 @@
 .HeroContainer {
   display: flex;
   width: 100%;
-  max-width: 90%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+}
+
+.HeroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(41, 196, 255, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 41, 112, 0.2) 0%,
+      transparent 50%
+    );
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.HeroContent {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  gap: 2em;
-}
-
-.HeroContacts {
-  display: flex;
-  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 40%;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px var(--shadow-color);
-  border-radius: 26px;
-  padding: 2em;
-  /* background: #c2b9b7; */
+  gap: 4rem;
+  z-index: 1;
 }
 
-.HeroText > h1 {
-  color: var(--text-primary);
-  font-size: 3.1em;
-}
-.HeroText > span {
-  color: var(--text-secondary);
-  font-size: 1em;
+.HeroInfo {
+  flex: 1;
+  max-width: 600px;
 }
 
-.HeroText > h2 {
-  font-size: 1.5em;
-  color: var(--text-primary);
+.HeroHeading {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #fff, #7928ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
 }
 
-.HeroButtons {
-  width: 100%;
+.HeroRole {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  color: #ff0080;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.HeroDescription {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.SocialLinks {
   display: flex;
-  gap: 1em;
-  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
-.Links {
-  background-color: var(--primary-color);
-  padding: 0.3em;
-  border-radius: 50px;
-  font-size: 1.8em;
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
-
-.Links:hover {
-  background-color: var(--primary-hover);
-}
-
-.HeroCV {
+.SocialLink {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  padding: 0.6em 1em;
-  background: var(--accent-color);
-  border-radius: 200px;
-  color: #fff;
-  transition: background-color 0.3s ease;
-  border: 1px solid #82dae3;
+  justify-content: center;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-.HeroCV:hover {
-  background: var(--accent-hover);
+.SocialLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #7928ca, #ff0080);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.SocialLink:hover::before {
+  opacity: 1;
+}
+
+.SocialLink svg {
+  z-index: 1;
+}
+
+.CVButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #7928ca, #ff0080);
+  border-radius: 3rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.CVButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff0080, #7928ca);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.CVButton:hover::before {
+  opacity: 1;
+}
+
+.CVButton span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.HeroImageContainer {
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+.HeroImageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: linear-gradient(
+    45deg,
+    rgba(48, 46, 49, 0.3),
+    rgba(66, 19, 42, 0.3)
+  );
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .HeroImage {
   width: 100%;
-  max-width: 60%;
-  background: var(--text-primary);
-  border-radius: 26px;
-  padding: 2em;
-  box-shadow: 0 4px 6px var(--shadow-color);
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  transition: transform 0.3s ease;
 }
 
-.HeroImage img {
+.ImageDecoration {
+  position: absolute;
   width: 100%;
-  height: auto;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(121, 40, 202, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 0, 128, 0.4) 0%,
+      transparent 50%
+    );
+  mix-blend-mode: overlay;
 }
 
-.ResponsiveImage {
-  width: 100%;
-  height: auto;
+@media (max-width: 1024px) {
+  .HeroContent {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .HeroInfo {
+    max-width: 100%;
+  }
+
+  .HeroDescription {
+    margin: 0 auto 2.5rem;
+  }
+
+  .SocialLinks {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .HeroImageContainer {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .HeroImageWrapper {
+    aspect-ratio: 4/3;
+    border-radius: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .HeroContainer {
-    flex-direction: column;
-    max-width: 95%;
-    
+  .HeroContent {
+    padding: 2rem 1rem;
   }
-  .HeroContacts {
+
+  .SocialLink {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .CVButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .SocialLinks {
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .HeroImageContainer {
     max-width: 100%;
-    border-radius: 12px;
-
-  }
-  .HeroText {
-    text-align: center;
+    margin-top: 2rem;
   }
 
-  .HeroText > h1 {
-    font-size: 10em;
-    line-height: 110%;
-  }
-
-  .HeroText > h2 {
-    font-size: 6em;
-  }
-  .HeroText > span {
-    font-size: 4em;
-  }
-
-  .HeroButtons {
-    /* flex-direction: column; */
-    margin-top: 4em;
-    margin-bottom: 4em;
-    justify-content: space-around;
-  }
-  .Links {
-    padding: 0.5em;
-    border-radius: 50px;
-    font-size: 5em;
-  }
-
-  .HeroCV {
-    gap: 0.3em;
-    padding: 0.6em 0.5em;
-    background: var(--accent-color);
-    border-radius: 200px;
-    font-size: 3.5em;
-    text-wrap: nowrap;
+  .HeroImageWrapper {
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    padding: 1rem;
   }
 
   .HeroImage {
-    max-width: 100%;
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    border-radius: 12px;
+    max-height: 300px;
+    width: auto;
+  }
+}
 
+@media (max-width: 480px) {
+  .HeroHeading {
+    font-size: 2rem;
   }
 
-  .HeroImage img {
-    max-height: 50em;
-    object-fit: contain;
+  .HeroRole {
+    font-size: 1.2rem;
+  }
+
+  .HeroDescription {
+    font-size: 1rem;
+  }
+
+  .HeroImageWrapper {
+    aspect-ratio: 3/2;
+    padding: 0.5rem;
+  }
+
+  .HeroImage {
+    max-height: 200px;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
