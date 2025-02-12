@@ -12,6 +12,15 @@ import { useEffect, useState } from "react";
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
 
+  const handleMouseMove = (e) => {
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    button.style.setProperty('--mouse-x', `${x}%`);
+    button.style.setProperty('--mouse-y', `${y}%`);
+  };
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -63,6 +72,7 @@ export default function Hero() {
               href="https://docs.google.com/document/d/1Wh1KppRxdiHd69FvFLjJoLsvRjkNTxmYh9uBelsqe64/edit?usp=sharing"
               target="_blank"
               className={styles.CVButton}
+              onMouseMove={handleMouseMove}
               whileHover={{ scale: isMobile ? 1 : 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -75,7 +85,7 @@ export default function Hero() {
               href="https://github.com/7erhii"
               target="_blank"
               className={styles.SocialLink}
-              whileHover={{ scale: 1.1 }}
+              onMouseMove={handleMouseMove}
               whileTap={{ scale: 0.95 }}
             >
               <FaGithub />
@@ -84,7 +94,7 @@ export default function Hero() {
               href="https://x.com/7erhiy"
               target="_blank"
               className={styles.SocialLink}
-              whileHover={{ scale: 1.1 }}
+              onMouseMove={handleMouseMove}
               whileTap={{ scale: 0.95 }}
             >
               <FaXTwitter />
@@ -93,7 +103,7 @@ export default function Hero() {
               href="mailto:7erhiy@gmail.com"
               target="_blank"
               className={styles.SocialLink}
-              whileHover={{ scale: 1.1 }}
+              onMouseMove={handleMouseMove}
               whileTap={{ scale: 0.95 }}
             >
               <IoIosMail />
@@ -102,7 +112,7 @@ export default function Hero() {
               href="https://www.instagram.com/7erhi/"
               target="_blank"
               className={styles.SocialLink}
-              whileHover={{ scale: 1.1 }}
+              onMouseMove={handleMouseMove}
               whileTap={{ scale: 0.95 }}
             >
               <FaInstagram />
