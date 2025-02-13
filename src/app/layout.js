@@ -10,21 +10,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Serhii Krepets | Professional Web Developer | React & PHP Specialist</title>
+        <title>Serhii Krepets | Expert Web Developer | Full Stack Developer in React & Node.js</title>
         <meta
           name="description"
-          content="Explore Serhii Krepets' portfolio—expert web developer specializing in React & PHP. Discover modern web applications, front-end development, and exceptional UI/UX design services."
+          content="Hire Serhii Krepets - Senior Web Developer with 5+ years of experience. Specializing in React, Node.js, and PHP development. Creating high-performance web applications and responsive designs. Based in Europe, available worldwide."
         />
         <meta
           name="keywords"
-          content="Serhii Krepets, web developer, React, PHP, front-end development, web development portfolio, JavaScript developer, responsive design, web applications, UI/UX design, modern web technologies"
+          content="web developer, hire web developer, React developer, Serhii Krepets, Krepets, full stack developer, JavaScript expert, Node.js developer, remote developer, European developer, PHP developer, frontend developer"
         />
 
         {/* Open Graph (OG) Metadata */}
-        <meta property="og:title" content="Serhii Krepets | Professional Web Developer" />
+        <meta property="og:title" content="Hire Serhii Krepets | Expert Web Developer & Full Stack Engineer" />
         <meta
           property="og:description"
-          content="Explore Serhii Krepets' portfolio—expert web developer specializing in React & PHP."
+          content="Senior Web Developer specializing in React, Node.js & PHP. 5+ years of experience in building scalable web applications. Available for hire globally."
         />
         <meta property="og:url" content="https://krepets.com/" />
         <meta property="og:type" content="website" />
@@ -53,19 +53,34 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Serhii Krepets",
-              jobTitle: "Web Developer",
+              jobTitle: "Senior Web Developer",
               url: "https://krepets.com/",
               sameAs: [
                 "https://www.linkedin.com/in/serhiikrepets",
                 "https://twitter.com/7erhiy",
-                "https://github.com/yourgithubhandle",
+                "https://github.com/7erhii",
+                "https://www.instagram.com/7erhi/"
               ],
-              description:
-                "Experienced web developer specializing in building modern web applications using React and PHP.",
+              description: "Senior Web Developer with expertise in React, Node.js, and PHP. Specializing in building high-performance web applications and responsive designs.",
               image: "https://krepets.com/thumbnail.avif",
+              alumniOf: {
+                "@type": "Organization",
+                name: "Your University or Notable Training"
+              },
+              knowsAbout: ["Web Development", "React", "Node.js", "PHP", "JavaScript", "Full Stack Development", "UI/UX Design"],
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance Web Developer"
+              }
             }),
           }}
         />
+
+        {/* Дополнительные мета-теги */}
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Serhii Krepets" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://krepets.com/" />
       </head>
       <body className={lato.className}>{children}</body>
     </html>

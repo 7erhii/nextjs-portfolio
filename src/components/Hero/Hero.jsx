@@ -57,14 +57,15 @@ export default function Hero() {
       >
         <motion.div className={styles.HeroInfo} variants={fadeIn}>
           <motion.span className={styles.HeroRole} variants={fadeIn}>
-            Full Stack Developer
+            Senior Full Stack Developer
           </motion.span>
           <motion.h1 className={styles.HeroHeading} variants={fadeIn}>
-            Hello, I'm Serhiy
+            Serhii Krepets - Professional Web Developer
           </motion.h1>
           <motion.p className={styles.HeroDescription} variants={fadeIn}>
-            Turning business requirements into seamless user experiences through code.
-            Specializing in creating modern and efficient web solutions.
+            Expert web developer with 5+ years of experience in React, Node.js, and PHP. 
+            Specializing in creating high-performance, scalable web applications and 
+            exceptional user experiences. Available for challenging projects worldwide.
           </motion.p>
           
           <motion.div className={styles.SocialLinks} variants={fadeIn}>
