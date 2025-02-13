@@ -128,10 +128,11 @@ export default function Hero() {
           <div className={styles.HeroImageWrapper}>
             <Image
               src={HeroImage}
-              alt="Portfolio"
+              alt="Serhii Krepets - Professional Web Developer Portfolio"
               className={styles.HeroImage}
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 600px"
+              loading="eager"
             />
             <div className={styles.ImageDecoration} />
           </div>

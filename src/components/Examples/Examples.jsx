@@ -230,6 +230,29 @@ export default function Examples() {
           ))}
         </motion.div>
       </motion.div>
+      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": projects.map((project, index) => ({
+              "@type": "SoftwareApplication",
+              "position": index + 1,
+              "name": project.title,
+              "description": project.description,
+              "applicationCategory": "WebApplication",
+              "operatingSystem": "Any",
+              "url": project.link,
+              "author": {
+                "@type": "Person",
+                "name": "Serhii Krepets"
+              }
+            }))
+          })
+        }}
+      />
     </section>
   );
 }
